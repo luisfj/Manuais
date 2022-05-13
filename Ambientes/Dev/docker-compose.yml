@@ -9,6 +9,7 @@ services:
     image: consul:latest
     command: agent -dev -ui -client=0.0.0.0
     container_name: consul
+    restart: 'always'
     ports:
         - 8500:8500
         - 8600:8600
@@ -28,6 +29,7 @@ services:
   keycloak:
     image: quay.io/keycloak/keycloak:18.0.0
     command: start-dev
+    restart: 'always'
     environment:
       KEYCLOAK_ADMIN: "admin"
       KEYCLOAK_ADMIN_PASSWORD: "admin"
@@ -44,6 +46,16 @@ services:
     depends_on:
       - postgres
 
+  activemq:
+    image: vromero/activemq-artemis:alpine-latest
+    container_name: activemq
+    restart: 'always'
+    environment:
+      ARTEMIS_USERNAME: admin
+      ARTEMIS_PASSWORD: admin
+    ports:
+      - 8161:8161
+      - 61616:61616
         
   # keycloak:
   #     image: bitnami/keycloak:latest

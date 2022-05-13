@@ -13,3 +13,15 @@ http://localhost:5432
 http://localhost:8082
 
 # AMBIENTE CONFIGURADO
+
+
+# Comparativo dos serviços de mensageria ActiveMQ e RabbitMQ
+https://www.openlogic.com/blog/activemq-vs-rabbitmq
+
+
+# INFRA  DEV
+ - Keycloak : Autenticação
+ - Postgres : Banco para o keycloak
+ - ActiveMQ : Mensageria
+ - Stork : Service discovery com consul
+ - Consul : Service discovery e Proxy com CONSUL DNS <Futura implementação>

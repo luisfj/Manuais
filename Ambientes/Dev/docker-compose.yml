@@ -46,16 +46,18 @@ services:
     depends_on:
       - postgres
 
-  activemq:
+  activemq:  
     image: vromero/activemq-artemis:alpine-latest
     container_name: activemq
     restart: 'always'
     environment:
       ARTEMIS_USERNAME: admin
       ARTEMIS_PASSWORD: admin
+      # AMQ_USER=quarkus -e AMQ_PASSWORD=quarkus 
     ports:
       - 8161:8161
       - 61616:61616
+      - 5672:5672
         
   # keycloak:
   #     image: bitnami/keycloak:latest

@@ -12,6 +12,10 @@ http://localhost:5432
 # Servidor de Autenticação KEYCLOAK rodando
 http://localhost:8082
 
+# Servidor de mensageria RabbitMQ
+http://localhost:8083
+
+
 # AMBIENTE CONFIGURADO
 
 

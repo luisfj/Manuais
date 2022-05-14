@@ -22,6 +22,6 @@ https://www.openlogic.com/blog/activemq-vs-rabbitmq
 # INFRA  DEV
  - Keycloak : Autenticação
  - Postgres : Banco para o keycloak
- - ActiveMQ : Mensageria
+ - RabbitMQ : Mensageria
  - Stork : Service discovery com consul 
  - Consul : Service discovery e Proxy com CONSUL DNS <Futura implementação>

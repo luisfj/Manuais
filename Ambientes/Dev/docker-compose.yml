@@ -46,18 +46,34 @@ services:
     depends_on:
       - postgres
 
-  activemq:  
-    image: vromero/activemq-artemis:alpine-latest
-    container_name: activemq
+  rabbitmq:
+    image: rabbitmq:latest    
+    container_name: 'rabbitmq'
     restart: 'always'
-    environment:
-      ARTEMIS_USERNAME: admin
-      ARTEMIS_PASSWORD: admin
-      # AMQ_USER=quarkus -e AMQ_PASSWORD=quarkus 
     ports:
-      - 8161:8161
-      - 61616:61616
-      - 5672:5672
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    # networks:
+    #     - rabbitmq_go_net
+
+# networks:
+#   rabbitmq_go_net:
+#     driver: bridge
+  # activemq:  
+  #   image: vromero/activemq-artemis:alpine-latest
+  #   container_name: activemq
+  #   restart: 'always'
+  #   environment:
+  #     ARTEMIS_USERNAME: admin
+  #     ARTEMIS_PASSWORD: admin
+  #     # AMQ_USER=quarkus -e AMQ_PASSWORD=quarkus 
+  #   ports:
+  #     - 8161:8161
+  #     - 61616:61616
+  #     - 5672:5672
         
   # keycloak:
   #     image: bitnami/keycloak:latest
